@@ -31,6 +31,6 @@ look at the picture above,if I multiply the vector on the dash line by zero.Then
 
 So the subspaces of $R^2$ consist of
 1. $R^2$ counts as a subspace of itself
-2. any line through zero (0,0)
+2. any line through zero (0,0) 
 3. zero point
 
