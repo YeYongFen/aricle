@@ -25,4 +25,12 @@ A **subspace** of S must satisfy two requirements:
 ### example 1 ###
 Find all subspace in $R^2$
 
+![image](https://raw.githubusercontent.com/yyf1994gggg/aricle/master/images/vector_space_1.png)
+
+look at the picture above,if I multiply the vector on the dash line by zero.Then I will get (0,0),which is not in the dash line obviously.  
+
+So the subspaces of $R^2$ consist of
+1. $R^2$ counts as a subspace of itself
+2. any line through zero (0,0)
+3. zero point
 
