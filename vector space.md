@@ -41,3 +41,30 @@ b. We only want to describe the good right sides b . Those good b's form the "co
 
 **DEFINITION** The column space consists of **all linear combinations of the column** .
 The combinations are all possible vectors Ax. They fill the column space $C(A)$
+
+To solve $Ax=b$ is to
+express bas a combination ofthe columns . The right side b has to be in the column space produced by A on the left side, or no solution. In another word , **The system $Ax= b$ is solvable if and only b is in the column space of A**
+
+**example**  
+Here is a 3 by 2 matrix A. The column space of all combinations of the two columns flls up a plane in $R^3$. $Ax = b$ is
+solvable when b is on that plane. Then b must be a combination of the columns
+
+$$
+\left[\begin{array}{cc} 
+1&0\\ 
+4&3\\ 
+2&3\\ 
+\end{array} \right] 
+\left[ \begin{array}{c} 
+x_1\\
+x_2\\ 
+\end{array} \right] 
+=\left[ \begin{array}{c} 
+b_1\\ 
+b_2\\ 
+b_3\\ 
+\end{array}
+\right]
+$$
+
+![image](https://raw.githubusercontent.com/yyf1994gggg/aricle/master/images/vector_space_2.png)
