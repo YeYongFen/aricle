@@ -1,11 +1,11 @@
-# Vector Space #
+
 
 
 ## what is vector space ##
 $R^n$ is a n-dimensional space , which contains all real column vectors with n components .
 
 If v and w are in a **vector space S**  , every combination **cv + dw** must be in S  
- (*S is a  ($R^2$)*)
+ (*S is   $R^2$*)
 
 
 ## what is subspace ##
@@ -22,7 +22,7 @@ A **subspace** of S must satisfy two requirements:
 **Notice: Ever subspace contains the zero vector**
 
 
-### example 1 ###
+**example 1**  
 Find all subspace in $R^2$
 
 ![image](https://raw.githubusercontent.com/yyf1994gggg/aricle/master/images/vector_space_1.png)
@@ -34,3 +34,10 @@ So the subspaces of $R^2$ consist of
 2. any line through zero (0,0) 
 3. zero point
 
+
+## Column Space ##
+When we are trying to solve $Ax=b$. If A is not invertible, the system is not solvable for every
+b. We only want to describe the good right sides b . Those good b's form the "column space" of A ,written as $C(A)$
+
+**DEFINITION** The column space consists of **all linear combinations of the column** .
+The combinations are all possible vectors Ax. They fill the column space $C(A)$
