@@ -51,20 +51,19 @@ solvable when b is on that plane. Then b must be a combination of the columns
 
 $$
 \left[\begin{array}{cc} 
-1&0\\ 
-4&3\\ 
-2&3\\ 
+1&0\\
+4&3\\
+2&3\\
 \end{array} \right] 
 \left[ \begin{array}{c} 
 x_1\\
-x_2\\ 
+x_2\\
 \end{array} \right] 
 =\left[ \begin{array}{c} 
-b_1\\ 
-b_2\\ 
-b_3\\ 
-\end{array}
-\right]
+b_1\\
+b_2\\
+b_3\\
+\end{array}\right]
 $$
 
 ![image](https://raw.githubusercontent.com/yyf1994gggg/aricle/master/images/vector_space_2.png)
@@ -95,103 +94,50 @@ $\therefore$  so solutions can not be a vector space
 ## Solve $Ax=0$ ##  
 **example**  
 solve  $Ax=0$ or $N(A)$  
+
 $$
-A=\left[\begin{array}{cc} 
-1&2&2&2\\ 
-2&4&6&8\\  
-3&6&8&10\\ 
-\end{array} \right] 
+\left[\begin{array}{cc}
+1&2&2&2\\
+2&4&6&8\\
+3&6&8&10\\
+\end{array} \right]
 $$
 We can apply elimination to the solve linear equations $Ax = 0$. By the way, **elimination can not change the solutions $x$**
 
 
 $$
 A=
-\left[\begin{array}{cc} 
-1&2&2&2\\ 
-2&4&6&8\\  
-3&6&8&10\\ 
-\end{array} \right] 
-
+\left[\begin{array}{cc}
+1&2&2&2\\
+2&4&6&8\\
+3&6&8&10\\
+\end{array} \right]
 \xrightarrow[ -3r_1+r_3 ]{-2r_1+r_2}
-
-
-\left[\begin{array}{cc} 
-1&2&2&2\\ 
-0&0&2&4\\  
-0&0&2&4\\ 
-\end{array} \right] 
-
-\xrightarrow[  ]{-r_2+r_3}
-
-
-\left[\begin{array}{cc} 
-1&2&2&2\\ 
-0&0&2&4\\  
-0&0&0&0\\ 
-\end{array} \right] 
-
+\left[\begin{array}{cc}
+1&2&2&2\\
+0&0&2&4\\
+0&0&2&4\\
+\end{array} \right]
+\xrightarrow[]{-r_2+r_3}
+\left[\begin{array}{cc}
+1&2&2&2\\
+0&0&2&4\\
+0&0&0&0\\
+\end{array} \right]
 =U
-
 $$
 
-$U$ means **row-echelon form**, column one 
-$
-\left[\begin{array}{cc} 
-1\\ 
-0\\  
-0\\ 
-\end{array} \right] 
-$
-and column three
-$
-\left[\begin{array}{cc} 
-2\\ 
-2\\  
-0\\ 
-\end{array} \right] 
-$
-are **pivot columns** .  
+$U$ means **row-echelon form**, column one $\left[\begin{array}{cc}1\\0\\0\\ \end{array} \right]$and column three $\left[\begin{array}{cc} 2\\ 2\\  0\\ \end{array} \right]$are **pivot columns** .  
 
 column two
-$
-\left[\begin{array}{cc} 
-2\\ 
-0\\  
-0\\ 
-\end{array} \right] 
-$
-and column four
-$
-\left[\begin{array}{cc} 
-2\\ 
-4\\  
-0\\ 
-\end{array} \right] 
-$
+$\left[\begin{array}{cc}2\\0\\0\\\end{array} \right]$ and column four $\left[\begin{array}{cc}2\\4\\0\\\end{array} \right]$
 are **free columns** .  
 For the fee variables $x_2$ and $x_4$.  
 First   $x_2=1$ and $x_4=0$ , then $x_1=-2$ , $x_3=0$  
 Second  $x_2=0$ and $x_4=1$ , then $x_1=2$ , $x_3=-2$
 
 So the 
-$
-\left[\begin{array}{cc} 
--2\\ 
-1\\  
-0\\ 
-0\\ 
-\end{array} \right] 
-$
-and
-$
-\left[\begin{array}{cc} 
-2\\ 
-0\\  
--2\\ 
-1\\ 
-\end{array} \right] 
-$
+$\left[\begin{array}{cc} -2\\ 1\\  0\\ 0\\ \end{array} \right]$ and $\left[\begin{array}{cc} 2\\ 0\\  -2\\ 1\\\end{array} \right]$
  are the special solutions to $Ux=0$ , and the special solutions to $Ax=0$ as well.They have the same solutions.
 
 The null space $N(A)$ contains all the combination of the special  solution ,
@@ -201,20 +147,19 @@ The null space $N(A)$ contains all the combination of the special  solution ,
  $$
  c_1
 \left[\begin{array}{cc} 
--2\\ 
-1\\  
-0\\ 
-0\\ 
-\end{array} \right] 
-
+-2\\
+1\\
+0\\
+0\\
+\end{array} \right]
 +
 c_2
-\left[\begin{array}{cc} 
-2\\ 
-0\\  
--2\\ 
-1\\ 
-\end{array} \right] 
+\left[\begin{array}{cc}
+2\\
+0\\
+-2\\
+1\\
+\end{array} \right]
 $$
 
 **question1:how many special solutions are there?**  
@@ -223,11 +168,11 @@ Each of free variables corresponds to a special solution
 **question2:How many free variables are there ?**  
  
 ```
-for a matrix , that's M rows,N columns  with rank R. Then it  has $(N-R)$ free variables  
+for a matrix , that's M rows,N columns  with rank R. Then it  has (N-R) free variables  
 
 N columns mean N variables  
 The rank R is the number of pivot . 
 ```
 
 
-In this case, R is 2 , N is 4 , So there are 2 free variables.  
+In this case, R is 2 , N is 4 , So there are 2 free variables. 
