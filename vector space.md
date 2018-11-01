@@ -91,7 +91,7 @@ $\because$ $A*0≠0$
 $\therefore$  zero not in the solutions to $Ax=b$
 $\therefore$  so solutions can not be a vector space
 
-## Solve $Ax=0$ ##  
+## Solve $Ux=0$ ##  
 **example**  
 solve  $Ax=0$ or $N(A)$  
 
@@ -176,3 +176,38 @@ The rank R is the number of pivot .
 
 
 In this case, R is 2 , N is 4 , So there are 2 free variables. 
+
+## Solve $Rx=0$ ##
+
+I still take the matrix above for example
+
+These steps bring us to the best matrix R
+```
+1. Produce zeros above te pivots. Use pivot rows to eliminate upward in R
+2. Produce ones in the pivots. Divide the whole pivot row by its pivot.
+```
+
+$$
+U=
+\left[\begin{array}{cc}
+1&2&2&2\\
+0&0&2&4\\
+0&0&0&0\\
+\end{array} \right]
+\xrightarrow[  ]{r_1-r_2}
+\left[\begin{array}{cc}
+1&2&0&-2\\
+0&0&2&4\\
+0&0&0&0\\
+\end{array} \right]
+\xrightarrow[]{r_2/2}
+\left[\begin{array}{cc}
+1&2&0&-2\\
+0&0&1&2\\
+0&0&0&0\\
+\end{array} \right]
+=R
+$$
+
+The right-hand side R is the **reduced row echelon form** of A  
+**The pivot columns of R contain I** ,so the number under and over the pivot must be zero,just like the third row in matrix R  $\left[\begin{array}{cc} 0\\ 1\\ 0\\ \end{array} \right]$
