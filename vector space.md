@@ -1,14 +1,15 @@
 
 
 
-## what is vector space ##
+# Vector Space #
+
 $R^n$ is a n-dimensional space , which contains all real column vectors with n components .
 
 If v and w are in a **vector space S**  , every combination **cv + dw** must be in S 
 (*S is   $R^2$*)
 
 
-## what is subspace ##
+# Subspace #
 A **subspace** of S must satisfy two requirements:
 ( *If v and ware vectors in the subspace and c is an scalar*)  
 ```
@@ -91,7 +92,9 @@ $\because$ $A*0≠0$
 $\therefore$  zero not in the solutions to $Ax=b$
 $\therefore$  so solutions can not be a vector space
 
-## Solve $Ux=0$ ##  
+## Solve $Ax=0$ ##  
+
+##  $Ux=0$ ##  
 **example**  
 solve  $Ax=0$ or $N(A)$  
 
@@ -177,7 +180,7 @@ The rank R is the number of pivot .
 
 In this case, R is 2 , N is 4 , So there are 2 free variables. 
 
-## Solve $Rx=0$ ##
+## $Rx=0$ ##
 
 I still take the matrix above for example
 
@@ -210,4 +213,496 @@ U=
 $$
 
 The right-hand side R is the **reduced row echelon form** of A  
-**The pivot columns of R contain I** ,so the number under and over the pivot must be zero,just like the third row in matrix R  $\left[\begin{array}{cc} 0\\ 1\\ 0\\ \end{array} \right]$
+**The pivot columns of R contain identity matrix I** ,so the number under and over the pivot must be zero,just like the third column in matrix R  $\left[\begin{array}{cc} 0\\ 1\\ 0\\ \end{array} \right]$
+
+$$
+
+
+
+
+
+Rx=
+\left[\begin{array}{cc}
+1&2&0&-2\\
+0&0&1&2\\
+0&0&0&0\\
+\end{array} \right]
+
+\left[\begin{array}{cc}
+x_1\\
+x_2\\
+x_3\\
+x_4\\
+\end{array} \right]
+
+\xrightarrow{exchange \  col2 \ and \ col3 }
+
+
+\left[\begin{array}{cc}
+1&0&2&-2\\
+0&1&0&2\\
+0&0&0&0\\
+\end{array} \right]
+
+\left[\begin{array}{cc}
+x_1\\
+x_3\\
+x_2\\
+x_4\\
+\end{array} \right]
+
+\\
+
+\Rightarrow{ }
+
+
+\left[\begin{array}{cc}
+I &F\\
+0 & 0\\
+\end{array} \right]
+
+\left[\begin{array}{cc}
+x_1\\
+x_3\\
+\hline
+
+x_2\\
+x_4\\
+\end{array} \right]
+=0
+
+\Rightarrow{ }
+
+I
+\left[\begin{array}{cc}
+x_1\\
+x_3\\
+\end{array} \right]
+
+=
+-F
+\left[\begin{array}{cc}
+x_2\\
+x_4\\
+\end{array} \right]
+
+
+\\
+
+\Rightarrow{ }
+
+
+\left[\begin{array}{cc} 
+1&0\\ 
+0&1\\  
+\end{array} \right]
+
+
+\left[\begin{array}{cc}
+x_1\\
+x_3\\
+\end{array} \right]
+
+=
+
+\left[\begin{array}{cc} 
+-2&2\\ 
+0&-2\\  
+\end{array} \right]
+\left[\begin{array}{cc}
+x_2\\
+x_4\\
+\end{array} \right]
+
+$$
+
+ In the example above , I make $I=\left[\begin{array}{cc} 1&0\\ 0&1\\  \end{array} \right]$ and $F=\left[\begin{array}{cc} 2&-2\\ 0&2\\  \end{array} \right]$  
+
+From reduced system $Rx = 0$ , it is much easier to find The
+special solutions .
+
+
+$$
+
+
+R=
+\left[\begin{array}{cc}
+I &F\\
+0 & 0\\
+\end{array} \right]
+
+\ \ \ 
+
+N=
+\left[\begin{array}{cc}
+-F\\
+I\\
+\end{array} \right]
+
+$$
+
+It's easy to prove that $RN=0$ , and N = $\left[\begin{array}{cc} -2 & 2\\ 0 & -2\\ 1 & 0\\ 0 & 1\\ \end{array} \right]$ . Then we exchange the column 2 and column 3 . Now we get the special solutions $\left[\begin{array}{cc} -2 \\ 1 \\0 \\ 0\\ \end{array} \right]$ and $\left[\begin{array}{cc} 2 \\ 0 \\-2 \\ 1\\ \end{array} \right]$  
+So the solutions for $Ax=0$ is that:  
+  *($c_1$ , $c_2$ are any real number)*  
+
+ $$
+ c_1
+\left[\begin{array}{cc} 
+-2\\
+1\\
+0\\
+0\\
+\end{array} \right]
++
+c_2
+\left[\begin{array}{cc}
+2\\
+0\\
+-2\\
+1\\
+\end{array} \right]
+$$
+
+
+  
+
+   
+**example 2**
+
+$$
+A=
+
+\left[\begin{array}{cc}
+1&2&3\\
+2&4&6\\
+2&6&8\\
+2&8&10\\
+\end{array} \right]
+
+\xrightarrow[  ]{ }
+\begin{matrix} \underbrace{
+
+\left[\begin{array}{cc}
+1&2&3\\
+0&2&2\\
+0&0&0\\
+0&0&0\\
+\end{array} \right]
+} \\ U\end{matrix}
+
+
+\xrightarrow[  ]{ }
+\begin{matrix} \underbrace{
+
+\left[\begin{array}{cc}
+1&0&1\\
+0&1&1\\
+0&0&0\\
+0&0&0\\
+\end{array} \right]
+} \\ R\end{matrix}
+
+
+\xrightarrow[
+
+I = \left[\begin{array}{cc}1&0\\0&1\\\end{array} \right]
+  ]{ 
+
+F = \left[\begin{array}{cc}1\\1\\\end{array} \right]
+
+  }
+
+
+\left[\begin{array}{cc}
+I&F\\
+0&0\\
+\end{array} \right]
+
+
+
+\\
+\\\\
+\\
+
+
+
+\\
+
+N = 
+
+\left[\begin{array}{cc}
+-F\\
+I\\
+\end{array} \right]
+
+
+
+
+\\
+
+x = 
+
+\left[\begin{array}{cc}
+x_1\\
+x_2\\
+\hline
+x_3\\
+
+\end{array} \right]
+
+=
+
+
+\left[\begin{array}{cc}
+-F\\
+I\\
+\end{array} \right]
+
+=
+
+\left[\begin{array}{cc}
+-1\\
+-1\\
+0 \\
+
+\end{array} \right]
+
+$$
+
+The solution of $Ax=0$ is $x=c*\left[\begin{array}{cc}-1\\-1\\1 \\\end{array} \right]$
+
+
+**conclusion**
+```
+There are two methods to solve Ax=0
+1、converted the Ax=0 to Ux = 0 through elimination ,and  then compute the special solution by back substitition
+2、converted the Ax=0 to Rx = 0 through elimination ,and  then find the special solution by RN=0
+```
+
+
+## Solve  $Ax=b$ ##
+
+### first example ###
+
+$$
+A=
+\left[\begin{array}{cc}
+1&3&0&2\\
+0&0&1&4\\
+1&3&1&6\\
+\end{array} \right]
+
+\left[\begin{array}{cc}
+x_1\\
+x_2\\
+x_3\\
+x_4\\
+\end{array} \right]
+=
+\left[\begin{array}{cc}
+1\\
+6\\
+7\\
+\end{array} \right]
+
+
+\Rightarrow
+
+
+\begin{matrix} \underbrace{
+
+\left[\begin{array}{cccc|c}
+1&3&0&2&\mathbf{1}\\
+0&0&1&4&\mathbf{6}\\
+1&3&1&6&\mathbf{7}\\
+\end{array} \right]
+} \\  augment \ matrix \end{matrix}
+
+=
+
+\left[\begin{array}{c|c}
+A&\mathbf{b}\\
+
+\end{array} \right]
+
+$$
+
+After several elimination operations, 
+
+
+### Gauss elimination ###
+$$
+
+
+\left[\begin{array}{cc}
+A&\mathbf{b}\\
+
+\end{array} \right]
+
+=
+
+
+\left[\begin{array}{cccc|l}
+1&3&0&2&\mathbf{b_1}\\
+0&0&1&4&\mathbf{b_2}\\
+1&3&1&6&\mathbf{b_3}\\
+\end{array} \right]
+
+\xrightarrow[]{}
+
+\left[\begin{array}{cccc|l}
+1&3&0&2&\mathbf{b_1}\\
+0&0&1&4&\mathbf{b_2}\\
+0&0&0&0&\mathbf{b_3-b_2-b_1}\\
+\end{array} \right]
+
+$$
+
+Only and if $b_3=b_2+b_1$ , $Ax=b$ is solvable
+
+### Complete solution ###
+First set two free variables $x_2=x_4=0$ ,then the privot variable $x_1=1$ and $x_3=6$ , so the $x_{particular} = (1,0,6,0)$ is a particular solution for $Ax=b$  
+second we find out the  solutions for Ax=0 is that $x_{nullspace}  =   c_2 \left[\begin{array}{cc} -3\\1\\0\\0\\\end{array} \right]+c_4\left[\begin{array}{cc}-2\\0\\-4\\1\\\end{array} \right]$
+
+So the complete solution is that:
+
+
+$$
+
+x=x_p+x_n=
+\left[\begin{array}{cc} 
+1\\
+0\\
+6\\
+0\\
+\end{array} \right]
++
+c_2 
+\left[\begin{array}{cc} 
+-3\\
+1\\
+0\\
+0\\
+\end{array} \right]
++
+c_4
+\left[\begin{array}{cc}
+-2\\
+0\\
+-4\\
+1\\
+\end{array} \right]
+
+$$
+
+The complete solutions of $Ax=b$  form a flat plane that go through $x_{particular}$  in $R^4$ . But the solutions is not a subspace .It just like that the subspace $x_n$ is shifted away from the origin until go through $x_{particular}$ .It doesn't contain zero.
+
+
+
+
+## Full Column Rank ##
+
+**example**
+$$
+
+
+
+A=
+
+\left[\begin{array}{rr}
+1&1\\
+1&2\\
+-2&-3\\
+\end{array} \right]
+
+and \   
+
+b=
+\left[\begin{array}{rr}
+b_1\\
+b_2\\
+b_3\\
+\end{array} \right]
+$$
+
+$$
+\left[\begin{array}{rr|r}
+1&1&b_1\\
+1&2&b_2\\
+-2&-3&b_3\\
+\end{array} \right]
+
+\xrightarrow[]{}
+
+
+\left[\begin{array}{rr|l}
+1&1&b_1\\
+0&1&b_2-b_1\\
+0&-1&b_3+2b_2\\
+\end{array} \right]
+
+
+\xrightarrow[]{}
+
+
+\left[\begin{array}{rr|l}
+1&0&2b_1-b_2\\
+0&1&b_2-b_1\\
+0&0&b_3+b_2+b_1\\
+\end{array} \right]
+$$
+
+If $b_1+b_2+b_3=0$ ,$Ax=b$ is solvable. Or there is no solutions.
+
+Supposing the equation is solvable.
+This example has no free variables since $n - r = 2 - 2$. Therefore no special solutions.
+The nullspace solution is $X_n = 0$. The particular solution to $Ax = b$ and $Rx = d$ is at the top of the final column d.**The only solution is that:**
+$$
+
+x=x_p+x_n=
+\left[\begin{array}{l}
+2b_1-b_2\\
+b_2-b_1\\
+b_3+b_2+b_1(=0)\\
+\end{array} \right]
++
+\left[\begin{array}{cc} 
+0\\
+0\\
+0\\
+\end{array} \right]
+
+
+$$
+
+A is a typical example to explain  full column rank.**A has full column rank**
+Every column has a pivot. The rank is r = n. The matrix is tall and thin (m $\geq$ n).  
+*(Row reduction puts I at the top, when A is reduced to R with rank n:)*
+
+**Full Column Rank**
+$$
+R=
+\left[\begin{array}{cc} 
+I\\
+0\\
+\end{array} \right]
+
+=
+
+\left[\begin{array}{cc} 
+{n\ by\ n\ identity\ matrix} \\
+{m-n\ rows\ of\ zero}
+
+\end{array} \right]
+
+$$
+
+**conclusion**
+
+```
+Every matrix A with full column rank (r = n) has all these properties:
+1. All columns of A are pivot columns.
+2. There are no free varables or special solutions.
+3. The nullspace N(A) contains only the zero vector x = 0.
+4. If Ax = b has a solution (it mght not) then it has only one solution
+```
