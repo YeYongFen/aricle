@@ -1,6 +1,9 @@
 
 
 
+
+
+
 # 1. Vector Space #
 
 $R^n$ is a n-dimensional space , which contains all real column vectors with n components .
@@ -26,7 +29,7 @@ A **subspace** of S must satisfy two requirements:
 **example 1**  
 Find all subspace in $R^2$
 
-![image](https://raw.githubusercontent.com/yyf1994gggg/aricle/master/images/vector_space_1.png)
+![image](vector_space/vector_space_1.png)
 
 look at the picture above,if I multiply the vector on the dash line by zero.Then I will get (0,0),which is not in the dash line obviously.  
 
@@ -67,9 +70,31 @@ b_3\\
 \end{array}\right]
 $$
 
-![image](https://raw.githubusercontent.com/yyf1994gggg/aricle/master/images/vector_space_2.png)
+![image](vector_space/vector_space_2.png)
 
-## 2.2. Nullspace ##
+## 2.2.Row space ##
+**DEFINITION :** The row space of a matrx is the subspace of $R^n$ spanned by the rows.  
+The row space of A is $C(A^T)$. It is the column space of $A^T$.
+
+The rows of an $m \times n$ matrix have n components. They are vectors in $R^n$.Transpose the matrix. Instead of the rows of A, look at the columns of $A^T$,same numbers, but now in the column space $C(A^T)$. This row space of A is a subspace of $R^n$.  
+
+**example**   
+
+Describe the row space of A.
+$$
+A=
+\left[\begin{array}{cc} 
+1&4\\
+2&7\\
+3&5\\
+\end{array} \right] 
+$$
+
+The row space of A is spanned by the three rows of A.This row space
+is all of $R^2$
+
+
+## 2.3. Nullspace ##
 
 **The nullspace $N(A)$ consist of all solutions to $Ax= 0$**.  
 Pretend A is a $m*n$ matrix , those vectors $x$ are in $R^n$ ,so the nullspace is a subspace of $R^n$ . However , the column space $C(A)$ is a subspace of $R^m$
@@ -671,5 +696,148 @@ A matrix has full row rank  $r = m$,and $n\gt\ m$ ,every row has a pivot. No mat
 |**shape** | Square | Short and wide | Tall and thin | Not full rnk |
 | **solutions**| one solutions | &infin; solutions | 0 or 1 solution | 0 or &infin; solutions |
 |**reduced R** | $\left[\begin{array}{cc} I\\\end{array} \right]$ | $\left[\begin{array}{cc} I&F\\\end{array} \right]$ | $\left[\begin{array}{cc} I\\0\\\end{array} \right]$| $\left[\begin{array}{cc} I&F\\0&0\\\end{array} \right]$ |
+|**linear dependent**|The columns  are certainly independent|The columns  are certainly dependent , there are $n-m$ free variables |The columns of  matrix A   with full column rank are independent.Because there are n pivots and no free variables. Only $x = 0$ is in the nullspace ||
 |**remark** | invertible |  |  | example 4.1|
+
+
+# Independence, Basis and Dimension #
+
+## Linear Independence ##
+**DEFINITION** : The sequence of vectors $v_1...v_n$ is linearly indeendent if the only
+combination that gives the zero vector is $0v_1 + 0v_2 + ... + 0v_n$  ,namely, $x_1v_1 + x_2v_2 + ... + x_nv_n = 0$ only happens when all x's are zero.  
+There is a direct way to check if a sequence of vectors is dependent. Another way to describe linear dependence is this: "One vector is a combination of the other vector." see the example below
+
+
+![image](vector_space/vector_space_3.png)
+
+1. If three vectors are not in the same plane, they are independent. No combination of $v_1, v_2, v_3$ in Picture 1 gives zero except $0v_1 + 0v_2 + 0v_3$.  
+2. If three vectors $w_1, w_2, w_3$ are in the same plane,The combination $w_1 - w_2 + w_3$ is $(0, 0, 0)$ they are dependent.
+
+**How to fnd that solution to $Ax = 0$ ? The systematic way is elimination.**
+
+$$
+
+A=\left[\begin{array}{cc}
+1&0&3\\
+2&1&5\\
+1&0&3\\
+\end{array} \right]
+\xrightarrow[  ]{ }
+\begin{matrix} \underbrace{
+\left[\begin{array}{cc}
+1&0&3\\
+0&1&-1\\
+0&0&0\\
+
+\end{array} \right]
+} \\ R\end{matrix}
+
+$$
+The solution $x = (-3,1,1)$ was exactly the special solution. It shows how the free column (column 3) is a combination of the pivot columns. That kills independence
+
+
+**summarization**  
+After a sequence of elimination , A is  converted to **R(reduced row echelon form)** , R is a $m \times n$ matric
+
+
+| m=n | m<n | n<m |
+ ------ | ------ | ------ |
+|The columns  are certainly independent|The columns  are certainly dependent , there are $n-m$ free variables |The columns of  matrix A   with full column rank are independent.Because there are n pivots and no free variables. Only $x = 0$ is in the nullspace |
+
+
+## Vectors that Span a Subspace ##
+
+**DEFINITION** A set of vectors spans a space if their linear combinations flll the space.  
+
+**Example 1** $v_1=\left[\begin{array}{cc}1\\0\\\end{array} \right]$ and $v_1=\left[\begin{array}{cc}0\\1\\\end{array} \right]$ span the full two-dimensional space $R^2$.  
+
+**Example 2** $v_1=\left[\begin{array}{cc}1\\0\\\end{array} \right]$ , $v_2=\left[\begin{array}{cc}0\\1\\\end{array} \right]$ , $v_3=\left[\begin{array}{cc}4\\7\\\end{array} \right]$ also span the full space $R^2$ .  
+
+**Example 3** $w_1=\left[\begin{array}{cc}1\\1\\\end{array} \right]$ and $w_2=\left[\begin{array}{cc}-1\\-1\\\end{array} \right]$ only span a line in $R^2$ . So does $w_1$ by itself.  
+
+think of three vectors coming out fom $(0, 0, 0)$ in 3-dimensional space. Mathematically ,there are possibilities:  ①they could only span a line, ②they could span a plane in $R^3$,③ they could  span could span all of $R^3$
+
+## A Basis for a Vector Space  ##
+Two vectors can't span all of $R^3$ , even if they are independent. Four vectors can't be independent, even if they span $R^3$. We want enough independent vectors to span the space (and not more). A "**basis**" is just right.  
+
+**DEFINITION:** A basis for a vector space is a sequence of vectors with two properties:The basis vectors are **linearly independent** and they **span the space**.  
+
+The **pivot columns** of A are a **basis** for **its column space**,but  not the pivot rows of its echelon for R.  
+The **pivot rows** of A are a **basis** for **its row space**. So are the pivot rows of its echelon for R.
+
+
+
+**example**  
+Find bases for the column and row spaces of matrix A
+$$
+A=\left[\begin{array}{rrrrr}
+1&1&-2&0&-1\\
+1&2&0&-4&1\\
+0&1&3&-3&2\\
+2&3&0&-2&0\\
+\end{array} \right]
+\xrightarrow[  ]{ }
+\left[\begin{array}{rrrrr}
+1&1&-2&0&-1\\
+0&1&2&-4&2\\
+0&0&1&1&0\\
+0&0&0&0&0\\
+\end{array} \right]
+=R
+$$
+And in fact,these rows still span the same space that the initial four rows did.Because when you do elimination,all that you're doing is recombining your rows by doing linear combinations of them.  
+So the basis for the row space is  $(1,1,-2,0,-1)$ , $(0,1,2,-4,2)$ and  $(0,0,1,1,0)$ .similarly we can use the first three rows,but it's not recommended.  Sometimes in elimination,you have to switch rows ,Thus you have to keep track of which row you switched to.So why don't we use the safer and simpler one.  
+We can no longer use first three columns of R as the basis for column space of A.Because when I did elimination ,I changeed the columns space. The column spaces of A and R are diﬀerent. Their bases are diﬀerent.But By the upper R,we keno that the privots are in first ,second and third columns. So the $(1,1,0,2)$ , $(1,2,1,3)$ and  $(-2,0,3,0)$ are the basis for the column space of A  
+
+
+
+**Question** Given four vectors in $R^5$, how do you find a basis for the space they span? 
+(we use the example above: find the basis for the space those vectors $(1,1,-2,0,-1)$,$(1,2,0,-4,1)$,$(0,1,3,-3,2)$,$(2,3,0,-2,0)$ span)
+
+*First answer* Make them the rows of A, and eliminate to find the nonzero rows of R.  
+$$
+A=\left[\begin{array}{rrrrr}
+1&1&-2&0&-1\\
+1&2&0&-4&1\\
+0&1&3&-3&2\\
+2&3&0&-2&0\\
+\end{array} \right]
+\xrightarrow[  ]{ }
+\left[\begin{array}{rrrrr}
+\mathbf{1} &1&-2&0&-1\\
+0&\mathbf{1}&2&-4&2\\
+0&0&\mathbf{1}&1&0\\
+0&0&0&0&0\\
+\end{array} \right]
+=R
+$$
+
+
+
+*Second answer* Put the five vectors into the columns of A. Eliminate to fnd the pivot columns (of A not R). Those pivot columns are a basis for the column space.  
+
+$$
+A=\left[\begin{array}{rrrrr}
+1&1&0&2\\
+1&2&1&3\\
+-2&0&3&0\\
+0&-4&-3&-2\\
+-1&1&2&0\\
+\end{array} \right]
+\xrightarrow[  ]{ }
+\left[\begin{array}{rrrrr}
+\mathbf{1}&1&0&2\\
+0&\mathbf{1}&1&1\\
+0&0&\mathbf{1}&2\\
+0&0&0&0\\
+0&0&0&0\\
+\end{array} \right]
+=R
+$$
+
+## Dimension of a Vector Space ##
+All bases for a vector space contain the same number ovectors,the number is the "**dimension**" of the space  
+Let's recall the example. The basis for the row space of is  $(1,1,-2,0,-1)$ , $(0,1,2,-4,2)$ and  $(0,0,1,1,0)$ ,so the row space has dimension 3. The $(1,1,0,2)$ , $(1,2,1,3)$ and  $(-2,0,3,0)$ are the basis for the column space of A  , so the column space has dimension 3
+
+
 
